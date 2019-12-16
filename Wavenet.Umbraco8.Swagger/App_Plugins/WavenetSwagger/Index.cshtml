@@ -1,0 +1,109 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = null;
+    var urls = Newtonsoft.Json.JsonConvert.SerializeObject(Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.Apis.Select(a => new { name = a.Value.name, url=$"/swagger/{a.Key.version}/{a.Key.api}" }));
+
+}
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="~/App_Plugins/WavenetSwagger/swagger-ui.css">
+    <link rel="icon" type="image/png" href="~/App_Plugins/WavenetSwagger/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/App_Plugins/WavenetSwagger/favicon-16x16.png" sizes="16x16" />
+    <style>
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background: #fafafa;
+        }
+    </style>
+    @*{CustomStyle}*@
+</head>
+
+<body>
+    <div id="swagger-ui"></div>
+
+    <script src="~/App_Plugins/WavenetSwagger/swagger-ui-bundle.js"></script>
+    <script src="~/App_Plugins/WavenetSwagger/swagger-ui-standalone-preset.js"></script>
+    <script>
+        window.addEventListener('load', function ()
+        {
+            const disableTryItOutPlugin = function ()
+            {
+                return {
+                    statePlugins: {
+                        spec: {
+                            wrapSelectors: {
+                                allowTryItOutFor: function ()
+                                {
+                                    return function ()
+                                    {
+                                        return true/*{EnableTryItOut}*/;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Build a system
+            var ui = SwaggerUIBundle({
+                urls: @Html.Raw(urls),
+                validatorUrl: undefined/*{ValidatorUrl}*/,
+                oauth2RedirectUrl: window.location.origin + "/swagger/oauth2-redirect.html"/*{RedirectUrl}*/,
+
+                //BEGIN Additionnal{AdditionalSettings}
+                docExpansion: "none",
+                operationsSorter: "none",
+                defaultModelsExpandDepth: 1,
+                defaultModelExpandDepth: 1,
+                tagsSorter: "none",
+                //END Additionnal
+
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl,
+                    disableTryItOutPlugin
+                ],
+                layout: "StandaloneLayout"
+            });
+
+            if (true/*"{ClientId}"*/)
+            {
+                ui.initOAuth({
+                    clientId: "{ClientId}",
+                    clientSecret: "{ClientSecret}",
+                    realm: "{Realm}",
+                    appName: "{AppName}",
+                    scopeSeparator: "{ScopeSeparator}",
+                    //additionalQueryStringParams: { AdditionalQueryStringParameters },
+                    //usePkceWithAuthorizationCodeGrant: { UsePkceWithAuthorizationCodeGrant }
+                });
+            }
+
+            window.ui = ui;
+        });
+    </script>
+    @*{CustomScript}*@
+</body>
+</html>

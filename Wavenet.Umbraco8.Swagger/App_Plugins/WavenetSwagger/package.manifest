@@ -1,0 +1,14 @@
+﻿{
+    // models builder dashboard
+    "dashboards":  [
+      {
+        "alias": "settingsSwagger",
+        "view": "/App_Plugins/WavenetSwagger/swagger.html",
+        "sections": [ "settings" ],
+        "weight": 500,
+        "access": [
+          { "grant": "admin" }
+        ]
+      }
+    ]
+}

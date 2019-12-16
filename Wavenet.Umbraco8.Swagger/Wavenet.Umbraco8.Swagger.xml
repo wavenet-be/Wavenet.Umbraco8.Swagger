@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wavenet.Umbraco8.Swagger</name>
+    </assembly>
+    <members>
+        <member name="T:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent">
+            <summary>
+            The base Swagger Component for Umbraco.
+            </summary>
+            <seealso cref="T:Umbraco.Core.Composing.IUserComposer" />
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.Apis">
+            <summary>
+            Gets the apis.
+            </summary>
+            <value>
+            The apis.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.IsUiEnabled">
+            <summary>
+            Gets a value indicating whether the UI is enabled.
+            </summary>
+            <value>
+              <c>true</c> if the UI is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.Path">
+            <summary>
+            Gets the path.
+            </summary>
+            <value>
+            The path.
+            </value>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.Compose(Umbraco.Core.Composing.Composition)">
+            <summary>
+            Composes the specified composition.
+            </summary>
+            <param name="composition">The composition.</param>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.Configure">
+            <summary>
+            Configures this instance.
+            </summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.Register(System.String,System.String,System.String,System.Reflection.Assembly[])">
+            <summary>
+            Registers all <see cref="T:System.Web.Http.ApiController"/> from the specified <paramref name="assemblies"/>.
+            </summary>
+            <param name="version">The version.</param>
+            <param name="api">The API.</param>
+            <param name="name">The name.</param>
+            <param name="assemblies">The assemblies.</param>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.Register(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Registers all <see cref="T:System.Web.Http.ApiController"/> from the specified <paramref name="assemblies"/>.
+            </summary>
+            <param name="version">The version.</param>
+            <param name="api">The API.</param>
+            <param name="name">The name.</param>
+            <param name="assemblies">The assemblies.</param>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Components.BaseSwaggerComponent.Register(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Registers the specified <paramref name="controllerTypes"/>.
+            </summary>
+            <param name="version">The version.</param>
+            <param name="api">The API.</param>
+            <param name="name">The name.</param>
+            <param name="controllerTypes">The controller types.</param>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.Controllers.SwaggerController">
+            <summary>
+            Swagger Controller.
+            </summary>
+            <seealso cref="T:Umbraco.Web.Mvc.SurfaceController" />
+        </member>
+        <member name="F:Wavenet.Umbraco8.Swagger.Controllers.SwaggerController.settings">
+            <summary>
+            The settings.
+            </summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Controllers.SwaggerController.Index">
+            <summary>
+            Swagger UI.
+            </summary>
+            <returns>The Swagger UI.</returns>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Controllers.SwaggerController.DocumentAsync(System.String,System.String)">
+            <summary>
+            Gets the OpenApi document.
+            </summary>
+            <param name="version">The desired version.</param>
+            <param name="api">The desired API.</param>
+            <returns>The <see cref="T:NSwag.OpenApiDocument"/>.</returns>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Controllers.SwaggerController.GenerateDocumentAsync(System.String,System.String,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Generates the Swagger specification.
+            </summary>
+            <param name="version">The version.</param>
+            <param name="name">The name.</param>
+            <param name="controllerTypes">The controller types.</param>
+            <returns>
+            The Swagger specification.
+            </returns>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1">
+            <summary>
+            The settings for UseSwagger.
+            </summary>
+            <typeparam name="T">Type of <see cref="T:NSwag.Generation.OpenApiDocumentGeneratorSettings"/>.</typeparam>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1"/> class.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1.DocumentPath">
+            <summary>Gets or sets the Swagger document route (must start with '/', default: '/swagger/v1/swagger.json').</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1.ExceptionCacheTime">
+            <summary>Gets or sets for how long a <see cref="T:System.Exception"/> caught during schema generation is cached.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1.GeneratorSettings">
+            <summary>Gets the generator settings.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1.MiddlewareBasePath">
+            <summary>Gets or sets the OWIN base path (when mapped via app.MapOwinPath()) (must start with '/').</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1.PostProcess">
+            <summary>Gets or sets the Swagger post process action.</summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1.CreateGeneratorSettings(Newtonsoft.Json.JsonSerializerSettings,System.Object)">
+            <summary>
+            Creates the generator settings.
+            </summary>
+            <param name="serializerSettings">The serializer settings.</param>
+            <param name="mvcOptions">The MVC options.</param>
+            <returns>The generator settings.</returns>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Route">
+            <summary>Specifies a route in the Swagger dropdown.</summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Route.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Route" /> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Route.Name">
+            <summary>
+            Gets or sets the route name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Route.Url">
+            <summary>
+            Gets or sets the route URL.
+            </summary>
+            <value>
+            The URL.
+            </value>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1">
+            <summary>
+            The settings for UseSwaggerUi3.
+            </summary>
+            <typeparam name="T">Type of <see cref="T:NSwag.Generation.OpenApiDocumentGeneratorSettings"/>.</typeparam>
+            <seealso cref="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1" />
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1"/> class.
+            </summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.AdditionalSettings">
+            <summary>
+            Gets the additional Swagger UI 3 settings.
+            </summary>
+            <value>
+            The additional settings.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.DefaultModelExpandDepth">
+            <summary>
+            Gets or sets the default expansion depth for the model on the model-example section in Swagger UI 3.
+            </summary>
+            <value>
+            The default model expand depth.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.DefaultModelsExpandDepth">
+            <summary>
+            Gets or sets the default expansion depth for models (set to -1 completely hide the models) in Swagger UI 3.
+            </summary>
+            <value>
+            The default models expand depth.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.DocExpansion">
+            <summary>
+            Gets or sets controls how the API listing is displayed. It can be set to 'none' (default), 'list' (shows operations for each resource), or 'full' (fully expanded: shows operations and their details).
+            </summary>
+            <value>
+            The document expansion.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.EnableTryItOut">
+            <summary>
+            Gets or sets a value indicating whether specifies whether the "Try it out" option is enabled in Swagger UI 3.
+            </summary>
+            <value>
+              <c>true</c> if [enable try it out]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.OAuth2Client">
+            <summary>
+            Gets or sets the Swagger UI OAuth2 client settings.
+            </summary>
+            <value>
+            The o auth2 client.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.OperationsSorter">
+            <summary>
+            Gets or sets the operations sorter in Swagger UI 3.
+            </summary>
+            <value>
+            The operations sorter.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.ServerUrl">
+            <summary>
+            Gets or sets the server URL.
+            </summary>
+            <value>
+            The server URL.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.SwaggerRoutes">
+            <summary>
+            Gets the Swagger URL routes (must start with '/', hides SwaggerRoute).
+            </summary>
+            <value>
+            The swagger routes.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.TagsSorter">
+            <summary>
+            Gets or sets the tags sorter in Swagger UI 3.
+            </summary>
+            <value>
+            The tags sorter.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.ValidateSpecification">
+            <summary>
+            Gets or sets a value indicating whether the Swagger specification should be validated.
+            </summary>
+            <value>
+              <c>true</c> if the Swagger specification should be validated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUi3Settings`1.WithCredentials">
+            <summary>
+            Gets or sets a value indicating whether to send credentials from the Swagger UI 3 to the backend.
+            </summary>
+            <value>
+              <c>true</c> if sent credentials; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1">
+            <summary>
+            The base settings for all Swagger UIs.
+            </summary>
+            <typeparam name="T">Type of <see cref="T:NSwag.Generation.OpenApiDocumentGeneratorSettings"/>.</typeparam>
+            <seealso cref="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerSettings`1" />
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1"/> class.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1.CustomJavaScriptPath">
+            <summary>Gets or sets a URI to load a custom JavaScript file into the index.html.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1.CustomStylesheetPath">
+            <summary>Gets or sets a URI to load a custom CSS Stylesheet into the index.html.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1.Path">
+            <summary>Gets or sets the internal swagger UI route (must start with '/').</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1.TransformToExternalPath">
+            <summary>Gets or sets the external route base path (must start with '/', default: null = use SwaggerUiRoute).</summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1.GenerateAdditionalSettings(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>Generates the additional objects JavaScript code.</summary>
+            <param name="additionalSettings">The additional settings.</param>
+            <returns>The code.</returns>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1.GetCustomScriptHtml(Microsoft.Owin.IOwinRequest)">
+            <summary>
+            Gets an HTML snippet for including custom JavaScript in swagger UI.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The custome script HTML.</returns>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.Migration.SwaggerUiSettingsBase`1.GetCustomStyleHtml(Microsoft.Owin.IOwinRequest)">
+            <summary>
+            Gets an HTML snippet for including custom StyleSheet in swagger UI.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The custom style HTML.</returns>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.OAuth2ClientSettings">
+            <summary>The OAuth client settings.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.OAuth2ClientSettings.ClientId">
+            <summary>Gets or sets the client identifier.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.OAuth2ClientSettings.ClientSecret">
+            <summary>Gets or sets the client secret.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.OAuth2ClientSettings.Realm">
+            <summary>Gets or sets the realm.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.OAuth2ClientSettings.AppName">
+            <summary>Gets or sets the name of the application.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.OAuth2ClientSettings.ScopeSeparator">
+            <summary>Gets or sets the scope separator.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.OAuth2ClientSettings.AdditionalQueryStringParameters">
+            <summary>Gets the additional query string parameters.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.OAuth2ClientSettings.UsePkceWithAuthorizationCodeGrant">
+            <summary>
+            Gets or sets a value indicating whether proof Key for Code Exchange. Only applies to `accessCode` flow. Supported in SwaggerUI 3.
+            </summary>
+            <value>
+              <c>true</c> if [use pkce with authorization code grant]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationParameterProcessor">
+            <summary>Generates the operation's parameters.</summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationParameterProcessor.#ctor(Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationParameterProcessor" /> class.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationParameterProcessor.Process(NSwag.Generation.Processors.Contexts.OperationProcessorContext)">
+            <summary>
+            Processes the specified method information.
+            </summary>
+            <param name="context">The processor context.</param>
+            <returns>
+            true if the operation should be added to the Swagger specification.
+            </returns>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationResponseProcessor">
+            <summary>
+            Generates the operation's response objects based on reflection and the ResponseTypeAttribute, SwaggerResponseAttribute and ProducesResponseTypeAttribute attributes.
+            </summary>
+            <seealso cref="T:NSwag.Generation.Processors.OperationResponseProcessorBase" />
+            <seealso cref="T:NSwag.Generation.Processors.IOperationProcessor" />
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationResponseProcessor.#ctor(Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationResponseProcessor"/> class.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationResponseProcessor.Process(NSwag.Generation.Processors.Contexts.OperationProcessorContext)">
+            <summary>
+            Processes the specified method information.
+            </summary>
+            <param name="context">The processor context.</param>
+            <returns>
+            true if the operation should be added to the Swagger specification.
+            </returns>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.Processors.OperationResponseProcessor.GetVoidResponseStatusCode">
+            <summary>
+            Gets the response HTTP status code for an empty/void response and the given generator.
+            </summary>
+            <returns>
+            The status code.
+            </returns>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator">
+            <summary>Generates a <see cref="T:NSwag.OpenApiDocument"/> object for the given Web API class type. </summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator.#ctor(Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings)">
+            <summary>Initializes a new instance of the <see cref="T:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator" /> class.</summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator.Settings">
+            <summary>Gets the generator settings.</summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator.GetControllerClasses(System.Reflection.Assembly)">
+            <summary>Gets all controller class types of the given assembly.</summary>
+            <param name="assembly">The assembly.</param>
+            <returns>The controller classes.</returns>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator.GenerateForControllerAsync``1">
+            <summary>Generates a Swagger specification for the given controller type.</summary>
+            <typeparam name="TController">The type of the controller.</typeparam>
+            <returns>The <see cref="T:NSwag.OpenApiDocument" />.</returns>
+            <exception cref="T:System.InvalidOperationException">The operation has more than one body parameter.</exception>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator.GenerateForControllerAsync(System.Type)">
+            <summary>Generates a Swagger specification for the given controller type.</summary>
+            <param name="controllerType">The type of the controller.</param>
+            <returns>The <see cref="T:NSwag.OpenApiDocument" />.</returns>
+            <exception cref="T:System.InvalidOperationException">The operation has more than one body parameter.</exception>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator.GenerateForControllersAsync(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>Generates a Swagger specification for the given controller types.</summary>
+            <param name="controllerTypes">The types of the controller.</param>
+            <returns>The <see cref="T:NSwag.OpenApiDocument" />.</returns>
+            <exception cref="T:System.InvalidOperationException">The operation has more than one body parameter.</exception>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator.GenerateForController(NSwag.OpenApiDocument,System.Type,NSwag.Generation.OpenApiDocumentGenerator,NSwag.OpenApiSchemaResolver)">
+            <exception cref="T:System.InvalidOperationException">The operation has more than one body parameter.</exception>
+        </member>
+        <member name="T:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings">
+            <summary>Settings for the <see cref="T:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGenerator"/>.</summary>
+        </member>
+        <member name="M:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings"/> class.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings.AddMissingPathParameters">
+            <summary>Gets or sets a value indicating whether to add path parameters which are missing in the action method.</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings.DefaultUrlTemplate">
+            <summary>Gets or sets the default Web API URL template (default for Web API: 'api/{controller}/{id}'; for MVC projects: '{controller}/{action}/{id?}').</summary>
+        </member>
+        <member name="P:Wavenet.Umbraco8.Swagger.WebApi.WebApiOpenApiDocumentGeneratorSettings.IsAspNetCore">
+            <summary>Gets or sets a value indicating whether the controllers are hosted by ASP.NET Core.</summary>
+        </member>
+    </members>
+</doc>

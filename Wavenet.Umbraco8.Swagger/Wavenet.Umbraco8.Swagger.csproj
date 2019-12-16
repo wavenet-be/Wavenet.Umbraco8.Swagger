@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <Company>Wavenet</Company>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <DocumentationFile>Wavenet.Umbraco8.Swagger.xml</DocumentationFile>
+    <Description>Enable Swagger/SwaggerUI integration in your Umraco projects</Description>
+    <Copyright>Wavenet ©</Copyright>
+    <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/wavenet-be/Wavenet.Umbraco8.Swagger/</PackageProjectUrl>
+    <PackageIconUrl>https://www.wavenet.be/favicon.ico</PackageIconUrl>
+    <RepositoryUrl>https://github.com/wavenet-be/Wavenet.Umbraco8.Swagger/</RepositoryUrl>
+    <PackageTags>Umbraco8 Swagger SwaggerUI</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="App_Plugins\**\*">
+      <Pack>true</Pack>
+      <PackagePath>content\App_Plugins\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Net.Compilers" Version="3.4.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NSwag.Generation" Version="13.1.6" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="UmbracoCms.Web" Version="[8.0.0, 9)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+</Project>
