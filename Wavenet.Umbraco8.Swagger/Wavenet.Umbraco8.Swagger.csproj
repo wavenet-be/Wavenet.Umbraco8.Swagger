@@ -3,9 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <Company>Wavenet</Company>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
     <DocumentationFile>Wavenet.Umbraco8.Swagger.xml</DocumentationFile>
@@ -30,10 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Net.Compilers" Version="3.4.0">
+    <!--<PackageReference Include="Microsoft.Net.Compilers" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    </PackageReference>-->
     <PackageReference Include="NSwag.Generation" Version="13.1.6" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
