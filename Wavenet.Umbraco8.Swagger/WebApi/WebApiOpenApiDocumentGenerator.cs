@@ -397,6 +397,11 @@ namespace Wavenet.Umbraco8.Swagger.WebApi
 
                     httpPaths.Add(string.Join("?", parts));
                 }
+                else if (umbracoApiControllerType.IsAssignableFrom(controllerType))
+                {
+                    /* RFC: If we cannot find the URL through Api Explorer -> Send an event and fall back to defaults? */
+                    httpPaths.Add("umbraco/api/{controller}/{action}/{id?}");
+                }
                 else
                 {
                     httpPaths.Add(this.Settings.DefaultUrlTemplate ?? string.Empty);
