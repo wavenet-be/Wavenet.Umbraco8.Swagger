@@ -82,10 +82,13 @@ namespace Wavenet.Umbraco8.Swagger.Controllers
             else
             {
                 document.Servers.Clear();
-                document.Servers.Add(new OpenApiServer
+                if (!this.Request.Url.IsLoopback)
                 {
-                    Url = new Uri(this.Request.Url, "/").ToString(),
-                });
+                    document.Servers.Add(new OpenApiServer
+                    {
+                        Url = new Uri(this.Request.Url, "/").ToString(),
+                    });
+                }
             }
 
             this.settings.PostProcess?.Invoke(document);
