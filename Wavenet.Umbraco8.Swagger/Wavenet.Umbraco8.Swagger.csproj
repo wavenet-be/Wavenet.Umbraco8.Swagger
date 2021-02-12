@@ -13,6 +13,7 @@
     <PackageIconUrl>https://www.wavenet.be/favicon.ico</PackageIconUrl>
     <RepositoryUrl>https://github.com/wavenet-be/Wavenet.Umbraco8.Swagger/</RepositoryUrl>
     <PackageTags>Umbraco8 Swagger SwaggerUI</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +32,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="NSwag.Generation" Version="13.1.6" />
+    <PackageReference Include="NSwag.Generation" Version="13.9.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
